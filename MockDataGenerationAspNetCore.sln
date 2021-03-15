@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockDataGenerationAspNetCore", "MockDataGenerator\MockDataGenerationAspNetCore.csproj", "{C75CE97C-AE81-48A9-B347-E3F14B535182}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C75CE97C-AE81-48A9-B347-E3F14B535182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75CE97C-AE81-48A9-B347-E3F14B535182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75CE97C-AE81-48A9-B347-E3F14B535182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75CE97C-AE81-48A9-B347-E3F14B535182}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59BA884C-56B9-47C0-816A-E72627E36FD9}
+	EndGlobalSection
+EndGlobal
