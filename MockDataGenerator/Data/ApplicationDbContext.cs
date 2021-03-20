@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore.InMemory;
 
 namespace MockDataGenerator.Data
 {
-    public partial class NorthwindContext : DbContext
+    public partial class ApplicationDbContext : DbContext
     {
-        public NorthwindContext()
+        public ApplicationDbContext()
         {
         }
 
-        public NorthwindContext(DbContextOptions<NorthwindContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
@@ -25,11 +25,6 @@ namespace MockDataGenerator.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=ALLAEV\\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

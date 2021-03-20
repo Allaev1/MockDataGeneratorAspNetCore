@@ -34,17 +34,17 @@ namespace MockDataGenerator
 
             services.AddSingleton<FakeDataGenerator>();
 
-            if (!isDataFake)
-                services.AddDbContext<NorthwindContext>();
+            if (isDataFake)
+                services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("NorthwindContext"));
             else
-                services.AddDbContext<NorthwindContext>(options => options.UseInMemoryDatabase("NorthwindContext"));
+                services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "Version #1",
-                    Title = "OMSWebMini",
+                    Title = $"Is data faked - {isDataFake}"
                 });
             });
 

@@ -30,10 +30,12 @@ namespace MockDataGenerator
                 {
                     //2. Get the instance of BoardGamesDBContext in our services layer
                     var services = scope.ServiceProvider;
-                    var context = services.GetRequiredService<NorthwindContext>();
+
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    var generator = services.GetRequiredService<FakeDataGenerator>();
 
                     //3. Call the DataGenerator to create sample data
-                    DataGenerator.Initialize(services);
+                    FakeDataSeeder.Initialize(context, generator);
                 }
             }
 

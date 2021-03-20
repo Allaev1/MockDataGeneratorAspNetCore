@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace MockDataGenerationAspNetCore
 {
-    public class DataGenerator
+    public class FakeDataSeeder
     {
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize(ApplicationDbContext context, FakeDataGenerator generator)
         {
-            var options = serviceProvider.GetRequiredService<DbContextOptions<NorthwindContext>>();
+            //var options = serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>();
 
-            var generator = serviceProvider.GetRequiredService<FakeDataGenerator>();
+            //var generator = serviceProvider.GetRequiredService<FakeDataGenerator>();
 
-            using(var context = new NorthwindContext(options))
+            using(context)
             {
                 context.Categories.AddRange(generator.Categories);
                 context.Products.AddRange(generator.Products);

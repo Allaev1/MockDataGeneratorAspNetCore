@@ -14,9 +14,9 @@ namespace MockDataGenerator.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ProductsController(NorthwindContext context)
+        public ProductsController(ApplicationDbContext context)
         {
             _context = context;
         }

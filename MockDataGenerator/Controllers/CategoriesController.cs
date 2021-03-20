@@ -14,28 +14,18 @@ namespace MockDataGenerator.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CategoriesController(NorthwindContext context)
+        public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories(bool showPicture)
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
-            if (showPicture)
-                return await _context.Categories.Include(category=>category.Products).ToListAsync();
-            else
-                return await _context.Categories.Include(category=>category.Products).Select(x =>
-                new Category()
-                {
-                    CategoryId = x.CategoryId,
-                    CategoryName = x.CategoryName,
-                    Description = x.Description,
-                    Products = x.Products
-                }).ToListAsync();
+            return await _context.Categories.Include(category => category.Products).ToListAsync();
         }
 
         // GET: api/Categories/5
